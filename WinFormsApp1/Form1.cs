@@ -40,13 +40,13 @@ namespace WinFormsApp1
         }
         private void createTestXMLDocumentFROMList()
         {
-            XmlNode rootNode = testXMLDocument.CreateElement("quation");
+            XmlNode rootNode = testXMLDocument.CreateElement("question");
             testXMLDocument.AppendChild(rootNode);
             XmlNode quation = testXMLDocument.CreateElement(test[0].question);
             XmlAttribute attribute = testXMLDocument.CreateAttribute("answer");
             attribute.Value = test[0].answers[0].Item2.ToString();
             quation.Attributes.Append(attribute);
-            quation.InnerText = test[0].answers[0].Item1; ;
+            quation.InnerText = test[0].answers[0].Item1;
             rootNode.AppendChild(quation);
             testXMLDocument.Save("test-doc.xml");
         }

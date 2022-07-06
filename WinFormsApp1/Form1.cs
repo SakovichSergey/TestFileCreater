@@ -41,23 +41,23 @@ namespace WinFormsApp1
         private void createTestXMLDocumentFROMList()
         {
             var countTask = test.Count();
-            XmlNode testNameNode = testXMLDocument.CreateElement("TestName");
+            XmlNode testNameNode = testXMLDocument.CreateElement("testName");
             testXMLDocument.AppendChild(testNameNode);
             foreach (TestQuestion tq in test)
             {
-                XmlNode taskNode = testXMLDocument.CreateElement("Task");
+                XmlNode taskNode = testXMLDocument.CreateElement("task");
                 testNameNode.AppendChild(taskNode);
-                XmlNode questionNode = testXMLDocument.CreateElement("Question");
+                XmlNode questionNode = testXMLDocument.CreateElement("question");
                 taskNode.AppendChild(questionNode);
                 questionNode.InnerText = tq.question;
-                XmlNode answersNode = testXMLDocument.CreateElement("Answers");
+                XmlNode answersNode = testXMLDocument.CreateElement("answers");
                 taskNode.AppendChild(answersNode);
                 var lengthAnswer = tq.answers.Length;
                 for (int i = 0; i < lengthAnswer; i++)
                 {
-                    XmlNode variantNode = testXMLDocument.CreateElement("Variant" + i.ToString());
+                    XmlNode variantNode = testXMLDocument.CreateElement("variant" + i.ToString());
                     answersNode.AppendChild(variantNode);
-                    XmlAttribute attribute = testXMLDocument.CreateAttribute("Accuracy");
+                    XmlAttribute attribute = testXMLDocument.CreateAttribute("accuracy");
                     attribute.Value = tq.answers[i].Item2.ToString();
                     variantNode.Attributes.Append(attribute);
                     variantNode.InnerText = tq.answers[i].Item1;

@@ -48,7 +48,7 @@ namespace WinFormsApp1
             taskNode.AppendChild(questionNode);
             questionNode.InnerText = test[0].question;
             //-----------------------------------------------------
-            XmlNode answersNode = testXMLDocument.CreateElement("Answers");
+            XmlNode answersNode = testXMLDocument.CreateElement("Answer");
             taskNode.AppendChild(answersNode);
             // XmlAttribute question = testXMLDocument.CreateAttribute("Question");
             // question.Value = test[0].question;

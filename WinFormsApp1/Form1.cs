@@ -40,25 +40,30 @@ namespace WinFormsApp1
         }
         private void createTestXMLDocumentFROMList()
         {
+            var countTask = test.Count();
             XmlNode testNameNode = testXMLDocument.CreateElement("TestName");
             testXMLDocument.AppendChild(testNameNode);
-            XmlNode taskNode = testXMLDocument.CreateElement("Task");
-            testNameNode.AppendChild(taskNode);
-            XmlNode questionNode = testXMLDocument.CreateElement("Question");
-            taskNode.AppendChild(questionNode);
-            questionNode.InnerText = test[0].question;
-            //-----------------------------------------------------
-            XmlNode answersNode = testXMLDocument.CreateElement("Answer");
-            taskNode.AppendChild(answersNode);
-            // XmlAttribute question = testXMLDocument.CreateAttribute("Question");
-            // question.Value = test[0].question;
-            // taskNode.Attributes.Append(question);
-            XmlAttribute attribute = testXMLDocument.CreateAttribute("answer");
-            attribute.Value = test[0].answers[0].Item2.ToString();
-            answersNode.Attributes.Append(attribute);
-            answersNode.InnerText = test[0].answers[0].Item1;
-            //--------------------------------------------------------
-            testNameNode.AppendChild(taskNode);
+            foreach (TestQuestion tq in test)
+            {
+                XmlNode taskNode = testXMLDocument.CreateElement("Task");
+                testNameNode.AppendChild(taskNode);
+                XmlNode questionNode = testXMLDocument.CreateElement("Question");
+                taskNode.AppendChild(questionNode);
+                questionNode.InnerText = tq.question;
+                XmlNode answersNode = testXMLDocument.CreateElement("Answers");
+                taskNode.AppendChild(answersNode);
+                var lengthAnswer = tq.answers.Length;
+                for (int i = 0; i < lengthAnswer; i++)
+                {
+                    XmlNode variantNode = testXMLDocument.CreateElement("Variant" + i.ToString());
+                    answersNode.AppendChild(variantNode);
+                    XmlAttribute attribute = testXMLDocument.CreateAttribute("accuracy");
+                    attribute.Value = tq.answers[i].Item2.ToString();
+                    variantNode.Attributes.Append(attribute);
+                    variantNode.InnerText = tq.answers[i].Item1;
+                }
+                testNameNode.AppendChild(taskNode);
+            }
             testXMLDocument.Save("test-doc.xml");
         }
         private void новыйТестToolStripMenuItem_Click(object sender, EventArgs e)

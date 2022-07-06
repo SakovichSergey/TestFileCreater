@@ -57,7 +57,7 @@ namespace WinFormsApp1
                 {
                     XmlNode variantNode = testXMLDocument.CreateElement("Variant" + i.ToString());
                     answersNode.AppendChild(variantNode);
-                    XmlAttribute attribute = testXMLDocument.CreateAttribute("accuracy");
+                    XmlAttribute attribute = testXMLDocument.CreateAttribute("Accuracy");
                     attribute.Value = tq.answers[i].Item2.ToString();
                     variantNode.Attributes.Append(attribute);
                     variantNode.InnerText = tq.answers[i].Item1;

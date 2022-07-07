@@ -15,28 +15,31 @@ namespace WinFormsApp1
     {
         XmlDocument testXMLDocument = new XmlDocument();
         List<TestQuestion> test;
+        string filePath = "test-doc.xml";
         public Form1()
         {
             InitializeComponent();
             test = new();
             panel1.Visible = false;
             button6.Visible = false;
-
         }
         private void readTestFromXMLDocument()
         {
-           /* testXMLDocument.Load(filePath);
-            foreach(XmlNode questionNode in testXMLDocument)
+           testXMLDocument.Load(filePath);
+            var rootNode = testXMLDocument.DocumentElement;
+            string testName = rootNode.Name; 
+            foreach(XmlNode taskNode in rootNode)
             {
                 string question = questionNode["Question"].InnerText;
-                int ansCounter = int.Parse(questionNode["Answers"].InnerText);
-                string[] answers = new string[ansCounter];
-                for (int i = 0; i < ansCounter; i++)
-                    answers[i] = questionNode[("Answer" + i.ToString())].InnerText;
-                TestQuestion que = new TestQuestion(question, answers);
-                test.Add(que);
-                listBox1.Items.Add(que); 
-            }*/
+                /* int ansCounter = int.Parse(questionNode["Answers"].InnerText);
+                 string[] answers = new string[ansCounter];
+                 for (int i = 0; i < ansCounter; i++)
+                     answers[i] = questionNode[("Answer" + i.ToString())].InnerText;
+                 TestQuestion que = new TestQuestion(question, answers);
+                 test.Add(que);
+                 listBox1.Items.Add(que); */
+                var a = 5;
+            }
         }
         private void createTestXMLDocumentFROMList()
         {
@@ -64,7 +67,7 @@ namespace WinFormsApp1
                 }
                 testNameNode.AppendChild(taskNode);
             }
-            testXMLDocument.Save("test-doc.xml");
+            testXMLDocument.Save(filePath);
         }
         private void новыйТестToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -77,8 +80,8 @@ namespace WinFormsApp1
         }
 
         private void открытьТестToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
-            
+        {
+            readTestFromXMLDocument();
         }
 
         private void button1_Click(object sender, EventArgs e)

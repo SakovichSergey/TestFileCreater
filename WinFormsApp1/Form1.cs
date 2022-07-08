@@ -27,10 +27,11 @@ namespace WinFormsApp1
         {
            testXMLDocument.Load(filePath);
             var rootNode = testXMLDocument.DocumentElement;
-            string testName = rootNode.Name; 
-            foreach(XmlNode taskNode in rootNode)
+            string testName = rootNode.Name;
+          var countTask=  rootNode.ChildNodes.Count;
+           foreach(XmlNode taskNode in rootNode.ChildNodes)
             {
-                string question = questionNode["Question"].InnerText;
+               string question = taskNode.ChildNodes[0].Value;
                 /* int ansCounter = int.Parse(questionNode["Answers"].InnerText);
                  string[] answers = new string[ansCounter];
                  for (int i = 0; i < ansCounter; i++)

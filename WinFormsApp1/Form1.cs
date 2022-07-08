@@ -95,7 +95,20 @@ namespace WinFormsApp1
         private void открытьТестToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            readTestFromXMLDocument();
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFileDialog.FileName;
+                
+                }
+            }
+            if (filePath != null)
+                readTestFromXMLDocument();
         }
 
         private void button1_Click(object sender, EventArgs e)

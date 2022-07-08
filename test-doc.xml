@@ -1,17 +1,9 @@
-<TestName>
-  <Task>
-    <Question>Вопрос1</Question>
-    <Answers>
-      <Variant0 accuracy="False"> Ответ1 </Variant0>
-      <Variant1 accuracy="True"> Ответ2 </Variant1>
-      <Variant2 accuracy="False"> Ответ3 </Variant2>
-    </Answers>
-  </Task>
-  <Task>
-    <Question>Вопрос2</Question>
-    <Answers>
-      <Variant0 accuracy="True"> Ответ1 </Variant0>
-      <Variant1 accuracy="False"> Ответ2 </Variant1>
-    </Answers>
-  </Task>
-</TestName>
+<testName name="Имя теста">
+  <task>
+    <question>Вопрос1</question>
+    <answers>
+      <variant0 accuracy="False"> Ответ1 </variant0>
+      <variant1 accuracy="True"> Ответ2 </variant1>
+    </answers>
+  </task>
+</testName>

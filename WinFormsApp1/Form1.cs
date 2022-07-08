@@ -15,7 +15,8 @@ namespace WinFormsApp1
     {
         XmlDocument testXMLDocument = new XmlDocument();
         List<TestQuestion> test;
-        string filePath = "test-doc.xml";
+        string filePath;// = "test-doc.xml";
+        string testName;
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +28,11 @@ namespace WinFormsApp1
         {
            testXMLDocument.Load(filePath);
             var rootNode = testXMLDocument.DocumentElement;
-            string testName = rootNode.Name;
+            string testName = rootNode.GetAttribute("name");
+            if (testName != null)
+            {
+                label6.Text += testName;
+            }
           var countTask=  rootNode.ChildNodes.Count;
            foreach(XmlNode taskNode in rootNode.ChildNodes)
             {
@@ -48,6 +53,9 @@ namespace WinFormsApp1
         {
             var countTask = test.Count();
             XmlNode testNameNode = testXMLDocument.CreateElement("testName");
+            XmlAttribute attributeTestName = testXMLDocument.CreateAttribute("name");
+            attributeTestName.Value = testName;
+            testNameNode.Attributes.Append(attributeTestName);
             testXMLDocument.AppendChild(testNameNode);
             foreach (TestQuestion tq in test)
             {
@@ -74,7 +82,9 @@ namespace WinFormsApp1
         }
         private void новыйТестToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            testName = Microsoft.VisualBasic.Interaction.InputBox("Введите название теста:");
+            label6.Text = label6.Text + testName;
+            filePath = testName + ".xml";
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,6 +94,7 @@ namespace WinFormsApp1
 
         private void открытьТестToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             readTestFromXMLDocument();
         }
 

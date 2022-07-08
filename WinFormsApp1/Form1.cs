@@ -41,7 +41,7 @@ namespace WinFormsApp1
                 }
                  TestQuestion que = new TestQuestion(question, answers);
                  test.Add(que);
-                 listBox1.Items.Add(que); 
+                 listBox1.Items.Add("Вопрос №" + test.Count.ToString()); 
             }
         }
         private void createTestXMLDocumentFROMList()

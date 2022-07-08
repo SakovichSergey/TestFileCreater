@@ -31,15 +31,17 @@ namespace WinFormsApp1
           var countTask=  rootNode.ChildNodes.Count;
            foreach(XmlNode taskNode in rootNode.ChildNodes)
             {
-               string question = taskNode.ChildNodes[0].Value;
-                /* int ansCounter = int.Parse(questionNode["Answers"].InnerText);
-                 string[] answers = new string[ansCounter];
-                 for (int i = 0; i < ansCounter; i++)
-                     answers[i] = questionNode[("Answer" + i.ToString())].InnerText;
+               string question = taskNode.ChildNodes[0].InnerText;
+                var count = 0;
+               (string, bool)[] answers= new (string, bool)[taskNode.ChildNodes[1].ChildNodes.Count];
+                foreach(XmlNode varNode in taskNode.ChildNodes[1].ChildNodes)
+                {
+                    answers[count] = (varNode.InnerText, Convert.ToBoolean(varNode.Attributes["accuracy"].Value));
+                    count++;
+                }
                  TestQuestion que = new TestQuestion(question, answers);
                  test.Add(que);
-                 listBox1.Items.Add(que); */
-                var a = 5;
+                 listBox1.Items.Add(que); 
             }
         }
         private void createTestXMLDocumentFROMList()

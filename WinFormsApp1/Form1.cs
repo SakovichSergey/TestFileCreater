@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace WinFormsApp1
 {
@@ -221,6 +224,11 @@ namespace WinFormsApp1
         private void сохранитьТестToolStripMenuItem_Click(object sender, EventArgs e)
         {
             createTestXMLDocumentFROMList();
+        }
+
+       private void экспортВPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

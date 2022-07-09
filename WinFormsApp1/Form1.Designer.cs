@@ -52,6 +52,7 @@ namespace WinFormsApp1
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.экспортВPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +73,7 @@ namespace WinFormsApp1
             this.новыйТестToolStripMenuItem,
             this.открытьТестToolStripMenuItem,
             this.сохранитьТестToolStripMenuItem,
+            this.экспортВPDFToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.создатьТестToolStripMenuItem.Name = "создатьТестToolStripMenuItem";
             this.создатьТестToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
@@ -262,6 +264,13 @@ namespace WinFormsApp1
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // экспортВPDFToolStripMenuItem
+            // 
+            this.экспортВPDFToolStripMenuItem.Name = "экспортВPDFToolStripMenuItem";
+            this.экспортВPDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.экспортВPDFToolStripMenuItem.Text = "Экспорт в PDF";
+            this.экспортВPDFToolStripMenuItem.Click += new System.EventHandler(this.экспортВPDFToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -318,6 +327,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ToolStripMenuItem экспортВPDFToolStripMenuItem;
     }
 }
 

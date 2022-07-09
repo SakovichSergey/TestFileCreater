@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -228,7 +229,17 @@ namespace WinFormsApp1
 
        private void экспортВPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var pdfTest = new iTextSharp.text.Document();
+            var pdfWriter = PdfWriter.GetInstance(pdfTest, new FileStream(filePath+".pdf", FileMode.Create));
+            pdfTest.Open();
+            BaseFont baseFont = BaseFont.CreateFont("C:\Windows\Fonts\Arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            var fontPDFFile = new iTextSharp.text.Font(baseFont, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL);
 
+            for (int idx = 0; idx < test.Count;idx++ )
+            {
+
+                pdfTest.Add(new iTextSharp.text.Phrase(idx.ToString() + ":" + test[idx].retStrTask()));
+            }
         }
     }
 }

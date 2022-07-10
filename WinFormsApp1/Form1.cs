@@ -230,16 +230,18 @@ namespace WinFormsApp1
        private void экспортВPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var pdfTest = new iTextSharp.text.Document();
-            var pdfWriter = PdfWriter.GetInstance(pdfTest, new FileStream(filePath+".pdf", FileMode.Create));
+            var pdfWriter = PdfWriter.GetInstance(pdfTest, new FileStream("test.pdf", FileMode.Create));
             pdfTest.Open();
-            BaseFont baseFont = BaseFont.CreateFont("C:\Windows\Fonts\Arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            BaseFont baseFont = BaseFont.CreateFont();// "C:\\Windows\\Fonts\\Arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             var fontPDFFile = new iTextSharp.text.Font(baseFont, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL);
 
             for (int idx = 0; idx < test.Count;idx++ )
             {
 
-                pdfTest.Add(new iTextSharp.text.Phrase(idx.ToString() + ":" + test[idx].retStrTask()));
+                pdfTest.Add(new iTextSharp.text.Phrase((idx + 1).ToString() + ":" + test[idx].question + "\n" + test[idx].retStrTask()));
             }
+            pdfTest.Close();
+            pdfWriter.Close();
         }
     }
 }

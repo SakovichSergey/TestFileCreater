@@ -99,6 +99,7 @@ namespace WinFormsApp1
         private void открытьТестToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+            test.Clear();
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
@@ -241,7 +242,7 @@ namespace WinFormsApp1
             for (int idx = 0; idx < test.Count;idx++ )
             {
 
-                pdfTest.Add(new iTextSharp.text.Phrase((idx + 1).ToString() + ":" + test[idx].question + "\n" + test[idx].retStrTask(), font));
+                pdfTest.Add(new iTextSharp.text.Phrase("Задание " + (idx + 1).ToString() + ":" + test[idx].retStrTaskWhithoutAnswers(), font));
             }
             pdfTest.Close();
             pdfWriter.Close();

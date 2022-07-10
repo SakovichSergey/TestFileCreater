@@ -22,12 +22,31 @@ namespace WinFormsApp1
                 retStr += retStrAnswer(i);
             return retStr;
         }
+        public String retStrTaskWhithoutAnswers()
+        {
+            String retStr = question + "\n";
+            for (int i = 0; i < answers.Length; i++)
+                retStr += retStrWhithoutAnswer(i);
+            return retStr;
+        }
         public String retStrAnswer (int numberAnswer)
         {
             if (numberAnswer < answers.Length)
             {
                 int val = numberAnswer+1;
                 return val.ToString() +":"+answers[numberAnswer].Item1 + "\u00FF" + answers[numberAnswer].Item2.ToString() + "\n";
+            }
+            else
+            {
+                return "Нет варианта ответа!";
+            }
+        }
+        public String retStrWhithoutAnswer(int numberAnswer)
+        {
+            if (numberAnswer < answers.Length)
+            {
+                int val = numberAnswer + 1;
+                return val.ToString() + ":" + answers[numberAnswer].Item1 + "\n";
             }
             else
             {

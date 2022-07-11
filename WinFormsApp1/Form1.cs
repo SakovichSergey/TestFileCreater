@@ -32,7 +32,7 @@ namespace WinFormsApp1
         {
            testXMLDocument.Load(filePath);
             var rootNode = testXMLDocument.DocumentElement;
-            string testName = rootNode.GetAttribute("name");
+            testName = rootNode.GetAttribute("name");
             if (testName != null)
             {
                 label6.Text += testName;

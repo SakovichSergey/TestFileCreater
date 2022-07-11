@@ -241,8 +241,8 @@ namespace WinFormsApp1
           
             BaseFont baseFont = BaseFont.CreateFont("c:/Windows/Fonts/arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             var font = new iTextSharp.text.Font(baseFont, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL);
-          
-
+            pdfTest.Add(new iTextSharp.text.Phrase("Тест:" + testName + "\n",font));
+            pdfTest.Add(new iTextSharp.text.Phrase("Фамилия И.О.___________________\t Группа№____________________________\n",font));
             for (int idx = 0; idx < test.Count;idx++ )
             {
 

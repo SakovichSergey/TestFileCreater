@@ -220,6 +220,10 @@ namespace WinFormsApp1
                 test.Remove(test[record]);
                 listBox1.Items.RemoveAt(record);
                 listBox1_MouseDoubleClick(null,null);
+                for(int i = record;i<listBox1.Items.Count;i++)
+                {
+                    listBox1.Items[i] = "Вопрос№"+(i+1).ToString();
+                }
             }
         }
 

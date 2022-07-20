@@ -21,6 +21,7 @@ namespace WinFormsApp1
         List<TestQuestion> test;
         string filePath;// = "test-doc.xml";
         string testName;
+
         public Form1()
         {
             InitializeComponent();
@@ -114,13 +115,14 @@ namespace WinFormsApp1
             }
             if (filePath != null)
                 readTestFromXMLDocument();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
                 label5.Text = textBox1.Text+"\n";
         }
-        int answerInputCount = 0;
+       
         private void button2_Click(object sender, EventArgs e)
         {
             answerInputCount++;

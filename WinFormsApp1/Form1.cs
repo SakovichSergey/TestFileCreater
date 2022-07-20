@@ -21,13 +21,14 @@ namespace WinFormsApp1
         List<TestQuestion> test;
         string filePath;// = "test-doc.xml";
         string testName;
-
+        int answerInputCount;// = 0;
         public Form1()
         {
             InitializeComponent();
             test = new();
             panel1.Visible = false;
             button6.Visible = false;
+            answerInputCount = 0;
         }
         private void readTestFromXMLDocument()
         {

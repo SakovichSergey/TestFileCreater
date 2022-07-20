@@ -236,7 +236,7 @@ namespace WinFormsApp1
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             var pdfTest = new iTextSharp.text.Document();
-            var pdfWriter = PdfWriter.GetInstance(pdfTest, new FileStream("test.pdf", FileMode.Create));
+            var pdfWriter = PdfWriter.GetInstance(pdfTest, new FileStream(filePath+".pdf", FileMode.Create));
              pdfTest.Open(); 
           
             BaseFont baseFont = BaseFont.CreateFont("c:/Windows/Fonts/arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
